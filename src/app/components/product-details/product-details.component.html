@@ -1,0 +1,39 @@
+<div class="product-details-container" *ngIf="product">
+  <div class="product-image">
+    <img [src]="'http://localhost:1452/' + product.images[0]" [alt]="product.name">
+  </div>
+  <div class="product-info">
+    <h2>{{ product.name }}</h2>
+    <p class="price">{{ product.price | currency }}</p>
+    <div class="product-details">
+      <div class="detail" *ngFor="let characteristic of product.characteristics">
+        <span class="detail-name">{{ characteristic.characteristic }}:</span>
+        <span class="detail-value">{{ characteristic.value }} {{ characteristic.unit_type }}</span>
+      </div>
+      <div class="detail">
+        <span class="detail-name">Brand:</span>
+        <span class="detail-value">{{ product.brand }}</span>
+      </div>
+      <div class="detail">
+        <span class="detail-name">Country:</span>
+        <span class="detail-value">{{ product.country }}</span>
+      </div>
+      <div class="detail">
+        <span class="detail-name">Category:</span>
+        <span class="detail-value">{{ product.category }}</span>
+      </div>
+      <div class="detail">
+        <span class="detail-name">Rating:</span>
+        <span class="detail-value">{{ product.rating }}</span>
+      </div>
+      <div class="detail">
+        <span class="detail-name">Reviews:</span>
+        <span class="detail-value">{{ product.count_review }}</span>
+      </div>
+    </div>
+    <div class="actions">
+      <button (click)="addToCart()">Add to Cart</button>
+      <button (click)="addToFavorites()">Add to Favorites</button>
+    </div>
+  </div>
+</div>

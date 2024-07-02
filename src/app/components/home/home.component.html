@@ -1,0 +1,57 @@
+<div class="home-container">
+  <div class="banner">
+    <div class="banner-content">
+      <div class="banner-text">
+        <p>Pro Beyond.</p>
+        <h2>iPhone 14 Pro</h2>
+        <p>Created to change everything for the better. For all.</p>
+      </div>
+      <button class="buy-now-btn">Buy Now</button>
+    </div>
+    <div class="banner-image">
+      <img src="../../../assets/pictures/iphone_Image.png" alt="iPhone 14 Pro">
+    </div>
+  </div>
+  <div class="product-categories">
+    <div class="category-card">
+      <img src="assets/pictures/Phones.png" alt="Phone">
+      <p>Phones</p>
+    </div>
+    <div class="category-card">
+      <img src="assets/pictures/Smart Watches.png" alt="Smart Watch">
+      <p>Smart Watches</p>
+    </div>
+    <div class="category-card">
+      <img src="assets/pictures/Cameras.png" alt="Camera">
+      <p>Cameras</p>
+    </div>
+    <div class="category-card">
+      <img src="assets/pictures/Headphones.png" alt="Headphones">
+      <p>Headphones</p>
+    </div>
+    <div class="category-card">
+      <img src="assets/pictures/Computers.png" alt="Computer">
+      <p>Computers</p>
+    </div>
+    <div class="category-card">
+      <img src="assets/pictures/Gaming.png" alt="Gaming">
+      <p>Gaming</p>
+    </div>
+  </div>
+  <div class="product-filters">
+    <button [class.active]="activeFilter === 'new-arrival'" (click)="setActiveFilter('new-arrival')">New Arrival</button>
+    <button [class.active]="activeFilter === 'bestseller'" (click)="setActiveFilter('bestseller')">Bestseller</button>
+    <button [class.active]="activeFilter === 'featured'" (click)="setActiveFilter('featured')">Featured Products</button>
+  </div>
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts.slice(0, 8); trackBy: trackByFn">
+      <img [src]="'http://localhost:1452/' + product.images[0]" [alt]="product.name">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.price | currency }}</p>
+      <div class="actions">
+        <button (click)="addToCart(product)">Add to Cart</button>
+        <button (click)="addToFavorites(product)">Add to Favorites</button>
+      </div>
+    </div>
+  </div>
+</div>

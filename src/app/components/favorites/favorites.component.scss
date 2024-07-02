@@ -1,0 +1,50 @@
+.favorites-container {
+    padding: 20px;
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .favorite-items {
+      .favorite-item {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 10px;
+        img {
+          width: 80px;
+          height: 80px;
+          object-fit: contain;
+          margin-right: 20px;
+        }
+        .item-info {
+          flex-grow: 1;
+          h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+          }
+          p {
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+        button {
+          padding: 6px 12px;
+          background-color: #dc3545;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          &:hover {
+            background-color: #c82333;
+          }
+        }
+      }
+    }
+    .empty-favorites {
+      text-align: center;
+      font-size: 18px;
+      color: #666;
+    }
+  }

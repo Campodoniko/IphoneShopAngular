@@ -1,0 +1,20 @@
+<div class="product-list-container">
+  <div class="search-bar">
+    <input type="text" placeholder="Search products" [(ngModel)]="searchTerm" (input)="onSearch()">
+    <div class="sort-options">
+      <button (click)="onSort('name')">Sort by Name</button>
+      <button (click)="onSort('price')">Sort by Price</button>
+    </div>
+  </div>
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <img [src]="'http://localhost:1452/' + product.images[0]" [alt]="product.name">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.price | currency }}</p>
+      <div class="actions">
+        <button (click)="addToCart(product)">Add to Cart</button>
+        <button (click)="addToFavorites(product)">Add to Favorites</button>
+      </div>
+    </div>
+  </div>
+</div>

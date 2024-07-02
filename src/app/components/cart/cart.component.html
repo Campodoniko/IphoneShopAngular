@@ -1,0 +1,29 @@
+<div class="cart-container">
+  <div class="cart-items">
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <img [src]="'http://localhost:1452/' + item.images[0]" [alt]="item.name">
+      <div class="item-info">
+        <h3>{{ item.name }}</h3>
+        <p>Color: {{ item.color }} Brand: {{ item.brand }}</p>
+        <p>Memory: {{ getCharacteristicValue(item, 'Объем встроенной памяти') }}</p>
+        <p>Price: {{ item.price | currency }}</p>
+        <button (click)="removeFromCart(item)">Remove</button>
+      </div>
+    </div>
+  </div>
+  <div class="cart-summary">
+    <div class="summary-item">
+      <p>Total Price:</p>
+      <p>{{ totalPrice | currency }}</p>
+    </div>
+    <div class="summary-item">
+      <p>Discount:</p>
+      <p>{{ discount | currency }}</p>
+    </div>
+    <div class="summary-item">
+      <p>Final Price:</p>
+      <p>{{ finalPrice | currency }}</p>
+    </div>
+    <button (click)="clearCart()" class="checkout-btn">Checkout</button>
+  </div>
+</div>

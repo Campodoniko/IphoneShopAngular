@@ -1,0 +1,33 @@
+<div class="header-top">
+  <div class="logo">
+    <!-- Добавьте логотип -->
+    <img src="../../../assets/pictures/Logo=Black.png" alt="Logo">
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search" (input)="onSearch($event)">
+    <div class="search-results" *ngIf="searchResults.length > 0">
+      <ul>
+        <li *ngFor="let result of searchResults">
+          <a (click)="navigateToProductDetails(result.id)">{{ result.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="links">
+    <a routerLink="/">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact Us</a>
+    <a href="#">Blog</a>
+  </div>
+  <div class="icons">
+    <a routerLink="/favorites">
+      <img src="../../../assets/pictures/Favorites.png" alt="Favorites">
+    </a>
+    <a routerLink="/cart">
+      <img src="../../../assets/pictures/Cart.png" alt="Cart">
+    </a>
+    <a href="#">
+      <img src="../../../assets/pictures/User.png" alt="User">
+    </a>
+  </div>
+</div>
